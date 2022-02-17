@@ -1,0 +1,34 @@
+"""
+Created on Wed Feb 16 16:43:07 2022
+
+@author: grant
+"""
+
+import project1_key_gen
+import encrypt_decrypt
+
+n = project1_key_gen.n_perm
+c = encrypt_decrypt.c_perm
+m = encrypt_decrypt.m_perm
+
+
+'''Enter the message to be sent'''
+'''message is just a place holder'''
+message = 100000
+
+
+'''Signiture is created'''
+M1 = (message**m) % n
+
+
+'''Message is sent and we use the signiture from M1 to decrypt'''
+M2 = (M1**c) % n
+
+
+if message == M2:
+    print("Since message = M2, Accept the message.")
+    
+else:
+    print("Since message does not equal M2, Do not accept the message.")
+
+
